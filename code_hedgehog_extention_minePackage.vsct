@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <Extern href="stdidcmd.h" />
+  <Extern href="vsshlids.h" />
+
+  <Commands package="guidcode_hedgehog_extention_minePackage">
+    
+    
+    <Buttons>
+      <Button guid="guidcode_hedgehog_extention_minePackageCmdSet" id="MyToolWindowCommandId" priority="0x0100" type="Button">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_VIEW_TOOLBARS" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Окно заданий CodeHedgehog</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidcode_hedgehog_extention_minePackageCmdSet" id="cmdidLoginToolWindowCommand" priority="0x0100" type="Button">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_VIEW_TOOLBARS" />
+        <Icon guid="guidImages1" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Войти в аккаунт CodeHedgehog</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+    
+   
+    <Bitmaps>
+      <Bitmap guid="guidImages" href="Resources\MyToolWindowCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
+      <Bitmap guid="guidImages1" href="Resources\LoginToolWindowCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
+    </Bitmaps>
+  </Commands>
+
+  <Symbols>
+    <GuidSymbol name="guidcode_hedgehog_extention_minePackage" value="{73a7c5cd-049e-44ec-9d38-9d5137d8634a}" />
+    <GuidSymbol name="guidcode_hedgehog_extention_minePackageCmdSet" value="{c7fe77cc-4ef5-4314-8c05-e575d7d14633}">
+      <IDSymbol name="MyToolWindowCommandId" value="0x0100" />
+      <IDSymbol value="257" name="cmdidLoginToolWindowCommand" />
+    </GuidSymbol>
+
+    <GuidSymbol name="guidImages" value="{2de6616e-5123-48b5-bede-ad946aa95bc9}">
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+  
+    <GuidSymbol value="{dba336eb-e8e3-4ce0-88f1-9808f1c3f383}" name="guidImages1">
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>
