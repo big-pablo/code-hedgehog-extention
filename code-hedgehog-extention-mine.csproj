@@ -50,6 +50,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>code_hedgehog_extention_minePackage.vsct</DependentUpon>
     </Compile>
+    <Compile Include="ExtStorageClass.cs" />
     <Compile Include="LoginToolWindow.cs" />
     <Compile Include="LoginToolWindowCommand.cs" />
     <Compile Include="LoginToolWindowControl.xaml.cs">
@@ -62,6 +63,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="code_hedgehog_extention_minePackage.cs" />
+    <Compile Include="SendSolutionCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="source.extension.vsixmanifest">
@@ -73,6 +75,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
@@ -97,8 +100,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="hedgehog_black_logo.png" />
+    <Content Include="Resources\currentTask.txt" />
     <Content Include="Resources\hedgehog_black_logo.png" />
     <Content Include="Resources\LoginToolWindowCommand.png" />
+    <Content Include="Resources\SendSolutionCommand.png" />
+    <Content Include="Resources\token.txt" />
     <VSCTCompile Include="code_hedgehog_extention_minePackage.vsct">
       <Generator>VsctGenerator</Generator>
       <ResourceName>Menus.ctmenu</ResourceName>

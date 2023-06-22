@@ -5,15 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:vsshell="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
              Background="WhiteSmoke"
-             Foreground="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}"
              mc:Ignorable="d"
              d:DesignHeight="350.847" d:DesignWidth="461.865"
-             Name="MyToolWindow">
-    <Grid>
-        <StackPanel Orientation="Vertical">
-            <TextBlock Margin="10" Name="TaskHeader" FontWeight="Bold" Text="Сортировка пузырьком" FontSize="20" HorizontalAlignment="Center"/>
-            <TextBlock Name="TaskDescription" HorizontalAlignment="Stretch" TextWrapping="Wrap" FontSize="12" Height="200" Text="Вам даны две строки S1 и S2, которые могут содержать любые ASCII символы, кроме символа переноса строки. Нормализуйте данные строки: удалите из этих строк все символы, отличные от латинских букв, цифр и пробелов, а также переведите все заглавные латинские буквы в строчные. Затем удалите из строк все слова, длина которых меньше или равна 3, а также все лишние пробелы (после каждого слова допустимо наличие только одного символа пробела). Для получившихся строк посчитайте значение: c / (|S1| + |S2| - c), где с - количество совпадающих символов в строках S1 и S2, а |Sn| - длина n-ой строки."/>
-
-        </StackPanel>
-    </Grid>
+             Name="MyToolWindow"
+             Loaded="UserControl_LoadedAsync">
+    <StackPanel Orientation="Vertical">
+        <Menu Height="25" VerticalAlignment="Top">
+            <MenuItem Name="TaskMenuItem" Header="Задача">
+            </MenuItem>
+            <MenuItem Name="LangMenuItem" Header="Язык" ></MenuItem>
+        </Menu>
+        <Label Margin="10" Name="TaskHeader" FontWeight="Bold" Content="Выберите задачу" FontSize="20" HorizontalAlignment="Center"/>
+        <TextBlock Name="TaskDescription" HorizontalAlignment="Stretch" TextWrapping="Wrap" FontSize="12" Height="200" Text=""/>
+        
+    </StackPanel>
 </UserControl>

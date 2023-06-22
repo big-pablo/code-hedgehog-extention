@@ -14,13 +14,17 @@ using Microsoft.VisualStudio.Shell;
 using System;
 using Microsoft.VisualStudio.Settings;
 using Microsoft.VisualStudio.Shell.Settings;
+using System.ComponentModel.Composition;
+using static code_hedgehog_extention_mine.ExtStorageClass;
+using static System.Net.Mime.MediaTypeNames;
+using System.IO;
 
 namespace code_hedgehog_extention_mine
 {
 
     public partial class LoginToolWindowControl : UserControl
     {
-
+        //private WritableSettingsStore __writableSettingsStore;
         public LoginToolWindowControl()
         {
             this.InitializeComponent();
@@ -28,12 +32,6 @@ namespace code_hedgehog_extention_mine
 
         [SuppressMessage("Microsoft.Globalization", "CA1300:SpecifyMessageBoxOptions", Justification = "Sample code")]
         [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1300:ElementMustBeginWithUpperCaseLetter", Justification = "Default event handler naming pattern")]
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show(
-                string.Format(System.Globalization.CultureInfo.CurrentUICulture, "Invoked '{0}'", this.ToString()),
-                "LoginToolWindow");
-        }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -48,23 +46,23 @@ namespace code_hedgehog_extention_mine
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             var response = await client.PostAsync("http://127.0.0.1:5000/login", content);
             var responseString = await response.Content.ReadAsStringAsync();
-            var message = responseString.ToString(); //Здесь message если чёто хуёво и token если всё zayebisse
+            var message = responseString.ToString();
             JObject jsonObject = JObject.Parse(message);
             string output;
             if (jsonObject["token"] != null)
             {
                 output = jsonObject["token"].ToString();
-                //SettingsManager settingsManager = new ShellSettingsManager(ServiceProvider.GlobalProvider);
-                //WritableSettingsStore userSettingsStore = settingsManager.GetWritableSettingsStore(SettingsScope.UserSettings);
-                //userSettingsStore.SetString("code_hedgehog_extention_mine", "token", output); Вот здесь хуйня типа Значение не попадает в ожидаемый диапазон
-                //MessageBox.Show(userSettingsStore.GetString("code_hedgehog_extention_mine", "token", defaultValue: string.Empty));
-                //Но всё норм, токен получается, сохраняется в аутпуте, осталось его как-то куда-нибудь записать, выше пытался            
+                using (StreamWriter writer = new StreamWriter("D:\\C# Projects\\code-hedgehog-extention-mine\\Resources\\token.txt", false))
+                {
+                    writer.Write(output);
+                }           
             }
             else
             {
                 output = jsonObject["message"].ToString();
                 MessageBox.Show(output);
             }
+            MessageBox.Show(output);
         }
     }
 }

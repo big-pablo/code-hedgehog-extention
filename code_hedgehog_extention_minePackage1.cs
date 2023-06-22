@@ -23,6 +23,12 @@ namespace code_hedgehog_extention_mine
 
         public const string guidImages1String = "dba336eb-e8e3-4ce0-88f1-9808f1c3f383";
         public static Guid guidImages1 = new Guid(guidImages1String);
+
+        public const string guidImages2String = "593ab953-3aae-42f6-84fa-6ab8b69036a6";
+        public static Guid guidImages2 = new Guid(guidImages2String);
+
+        public const string guidImages3String = "29db1599-3648-4c8e-b710-e924f6052791";
+        public static Guid guidImages3 = new Guid(guidImages3String);
     }
     /// <summary>
     /// Helper class that encapsulates all CommandIDs uses across VS Package.
@@ -31,6 +37,10 @@ namespace code_hedgehog_extention_mine
     {
         public const int MyToolWindowCommandId = 0x0100;
         public const int cmdidLoginToolWindowCommand = 0x0101;
+        public const int MyMenuGroup = 0x1020;
+        public const int MyContextMenuGroup = 0x1021;
+        public const int cmdidSendCommand = 0x0100;
+        public const int cmdidSendSolutionCommand = 0x1022;
         public const int bmpPic1 = 0x0001;
         public const int bmpPic2 = 0x0002;
         public const int bmpPicSearch = 0x0003;
